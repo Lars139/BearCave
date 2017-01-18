@@ -25,11 +25,13 @@ app.factory('voltSer', [function(){
     ]
   };
 
-  ret.preFetch = function() {
+  ret.preFetch = function getPreFetchVolt() {
+    setInterval(getPreFetchVolt, 1000);
     return $http.get('/voltTTN').success( function(data){
       angular.copy(data, ret.volt);
     });
   }
+
 
   return ret;
 }]);
